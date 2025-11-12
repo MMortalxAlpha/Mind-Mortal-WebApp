@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "title": "MMortal",
+    "slogans": [
+      "Your Story. Your Legacy. Forever.",
+      "Preserve Knowledge. Share Wisdom. Live On.",
+      "Connect Today. Impact Tomorrow. Live Forever."
+    ],
+    "description": "Preserve your wisdom. Share your ideas. Connect with the future.",
+    "backgroundImages": ["/Assets/c7971a89-c468-49b1-ab5a-14b1d463c990.png"]
+  },
+  "features": {
+    "title": "Features",
+    "items": [
+      {
+        "title": "Legacy",
+        "description": "Store memories, lessons, and stories to be passed down to future generations.",
+        "icon": "archive",
+        "link": "/features/legacy-vault"
+      },
+      {
+        "title": "Idea",
+        "description": "Document, collaborate, and potentially receive funding for your innovative ideas.",
+        "icon": "lightbulb",
+        "link": "/features/idea-vault"
+      },
+      {
+        "title": "Knowledge Exchange",
+        "description": "Share your wisdom or learn from others through mentorship connections.",
+        "icon": "users",
+        "link": "/features/wisdom-exchange"
+      },
+      {
+        "title": "Timeless Messages",
+        "description": "Schedule messages for future delivery to loved ones or the world.",
+        "icon": "clock",
+        "link": "/features/timeless-messages"
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Stories That Inspired Us",
+    "items": [
+      {
+        "title": "The Legacy of Viktor Frankl",
+        "content": "Psychologist Viktor Frankl, in Man's Search for Meaning, found that purpose—not pleasure—is what sustains humans through suffering and fulfillment. MMortal gives users a concrete way to assign meaning to their life experiences by preserving them for future generations.",
+        "image": "/Assets/placeholder.svg"
+      },
+      {
+        "title": "Nelson Mandela's Letters",
+        "content": "Mandela didn't just fight apartheid—he documented his journey through prison, pain, and peace. His letters, preserved during incarceration, became timeless guidance for generations. If Mandela had MMortal, his story wouldn't just be found in books—it would live within an interactive vault, ready for all.",
+        "image": "/Assets/placeholder.svg"
+      },
+      {
+        "title": "Anne Frank's Hidden Genius",
+        "content": "A teenage girl, hiding from genocide, wrote a diary that the world would later call genius. But at the time, it was simply a young girl trying to make sense of the world. MMortal exists to ensure no 'Anne' goes unheard again.",
+        "image": "/Assets/placeholder.svg"
+      },
+      {
+        "title": "The Lost Wisdom of Jamir",
+        "content": "Jamir, a 78-year-old carpenter in Bangladesh, had no formal education but built homes for three generations. When asked what he was most proud of, he said: 'Knowing how to fix what others thought was broken.' He never wrote anything down. After he passed, his grandkids only knew he 'worked with wood.' His philosophy, techniques, and way of looking at life—all lost.",
+        "image": "/Assets/placeholder.svg"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Join Us and Build Your Legacy",
+    "description": "We're building the first global legacy network—where your ideas, stories, and guidance create a ripple through time. You could be one of our first pioneers.",
+    "tagline": "Let's build the future of memory, together",
+    "goals": [
+      {
+        "icon": "users",
+        "title": "Legacy Pioneers",
+        "target": "10,000",
+        "current": "0"
+      },
+      {
+        "icon": "book",
+        "title": "Stories Preserved",
+        "target": "50,000",
+        "current": "0"
+      },
+      {
+        "icon": "handshake",
+        "title": "Wisdom Bridges",
+        "target": "5,000",
+        "current": "0"
+      }
+    ],
+    "buttonText": "Start Your Journey"
+  }
+}

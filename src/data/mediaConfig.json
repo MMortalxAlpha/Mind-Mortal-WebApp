@@ -1,0 +1,35 @@
+
+{
+  "hero": {
+    "backgroundVideo": "/Assets/Landing page animation.webm",
+    "fallbackImage": "/Assets/4dc712f6-a086-4f5f-bd6b-3231b62037bb.png"
+  },
+  "features": {
+    "backgroundAnimation": "/Assets/Container Animation.webm",
+    "fallbackImage": "/Assets/bcc0ccf7-c2c6-48ef-af7c-832d8c5bdaa7.png"
+  },
+  "loading": {
+    "animation": "/Assets/Landing page animation.webm"
+  },
+  "timelessMessages": {
+    "submissionAnimation": "/Assets/Timeless Message.webm"
+  },
+  "animations": {
+    "messageSubmitted": {
+      "path": "/Assets/Timeless Message.webm",
+      "fallbackImage": "/Assets/bcc0ccf7-c2c6-48ef-af7c-832d8c5bdaa7.png"
+    },
+    "ideaCreated": {
+      "path": "/Assets/idea-created.webm",
+      "fallbackImage": "/Assets/bcc0ccf7-c2c6-48ef-af7c-832d8c5bdaa7.png"
+    },
+    "legacyContributed": {
+      "path": "/Assets/legacy-contributed.webm",
+      "fallbackImage": "/Assets/bcc0ccf7-c2c6-48ef-af7c-832d8c5bdaa7.png"
+    },
+    "mentorshipSetup": {
+      "path": "/Assets/mentorship-setup.webm",
+      "fallbackImage": "/Assets/bcc0ccf7-c2c6-48ef-af7c-832d8c5bdaa7.png"
+    }
+  }
+}
