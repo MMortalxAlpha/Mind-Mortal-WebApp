@@ -1,1 +1,1 @@
-Mind Mortal Webapp project Developed by "LofiStack"
+Mind Mortal Webapp project Developed by 'LofiStack'
