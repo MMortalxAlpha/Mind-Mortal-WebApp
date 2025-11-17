@@ -1,20 +1,20 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { useAuth } from "@/hooks/useAuth";
-import { useCreateSubscription } from "@/hooks/useCreateSubscription";
-import { useSubscription } from "@/hooks/useSubscription";
-import { supabase } from "@/integrations/supabase/client";
-import { Check, Loader2, X } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+} from '@/components/ui/card';
+import { useAuth } from '@/hooks/useAuth';
+import { useCreateSubscription } from '@/hooks/useCreateSubscription';
+import { useSubscription } from '@/hooks/useSubscription';
+import { supabase } from '@/integrations/supabase/client';
+import { Check, Loader2, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
 interface SubscriptionStatusProps {
   showPlans?: boolean;
@@ -35,15 +35,15 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
   const handlePlanSelect = async (plan: any, interval: string) => {
     // Determine the correct Stripe price ID based on interval
     let priceId;
-    if (interval === "monthly") priceId = plan.stripe_price_id_monthly;
-    else if (interval === "yearly") priceId = plan.stripe_price_id_annual;
-    else if (interval === "lifetime") priceId = plan.stripe_price_id_lifetime;
+    if (interval === 'monthly') priceId = plan.stripe_price_id_monthly;
+    else if (interval === 'yearly') priceId = plan.stripe_price_id_annual;
+    else if (interval === 'lifetime') priceId = plan.stripe_price_id_lifetime;
 
     try {
       // Call your edge function to create a checkout session
       await createCheckout(plan, priceId);
     } catch (err) {
-      alert("An error occurred. Please try again.");
+      alert('An error occurred. Please try again.');
       console.error(err);
     }
   };
@@ -55,14 +55,14 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
         setLoadingPlans(true);
         try {
           const { data, error } = await supabase.rpc(
-            "get_public_plan_configurations"
+            'get_public_plan_configurations'
           );
 
           if (error) throw error;
 
           setPlans(data || []);
         } catch (error) {
-          console.error("Error fetching plans:", error);
+          console.error('Error fetching plans:', error);
         } finally {
           setLoadingPlans(false);
         }
@@ -105,7 +105,7 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
         <div>
           <div className="flex items-center gap-2 mb-1">
             <h3 className="font-semibold text-lg">
-              {subscription?.tier || "Free Plan"}
+              {subscription?.tier || 'Free Plan'}
             </h3>
             {subscription?.active && (
               <Badge
@@ -127,9 +127,9 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
           <p className="text-sm text-muted-foreground">
             {subscription?.tier
               ? `Your subscription ${
-                  subscription.active ? "is active" : "has expired"
+                  subscription.active ? 'is active' : 'has expired'
                 }`
-              : "You are currently on the free plan"}
+              : 'You are currently on the free plan'}
           </p>
           {subscription?.endDate && (
             <p className="text-xs text-muted-foreground mt-1">
@@ -144,8 +144,8 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
           )}
         </div>
         {showPlans && (
-          <Button variant="outline" onClick={() => navigate("/pricing")}>
-            {subscription?.tier ? "Change Plan" : "Upgrade"}
+          <Button variant="outline" onClick={() => navigate('/pricing')}>
+            {subscription?.tier ? 'Change Plan' : 'Upgrade'}
           </Button>
         )}
       </div>
@@ -225,15 +225,15 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                           className="w-full"
                           variant={
                             subscription?.plan_id === plan.plan_id
-                              ? "outline"
-                              : "default"
+                              ? 'outline'
+                              : 'default'
                           }
                           disabled={subscription?.plan_id === plan.plan_id}
-                          onClick={() => handlePlanSelect(plan, "monthly")}
+                          onClick={() => handlePlanSelect(plan, 'monthly')}
                         >
                           {subscription?.plan_id === plan.plan_id
-                            ? "Current Plan"
-                            : "Select"}
+                            ? 'Current Plan'
+                            : 'Select'}
                         </Button>
                       )}
 
@@ -242,15 +242,15 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                           className="w-full"
                           variant={
                             subscription?.plan_id === plan.plan_id
-                              ? "outline"
-                              : "default"
+                              ? 'outline'
+                              : 'default'
                           }
                           disabled={subscription?.plan_id === plan.plan_id}
-                          onClick={() => handlePlanSelect(plan, "lifetime")}
+                          onClick={() => handlePlanSelect(plan, 'lifetime')}
                         >
                           {subscription?.plan_id === plan.plan_id
-                            ? "Current Plan"
-                            : "Select Lifetime Plan"}
+                            ? 'Current Plan'
+                            : 'Select Lifetime Plan'}
                         </Button>
                       )}
                     </div>
@@ -275,19 +275,21 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                       plan.lifetime_price ? (
                         <div>
                           <span className="text-3xl font-bold">
-                            ${plan.annual_price}
+                            ${plan.annual_price / 12}
                           </span>
                           <span className="text-muted-foreground">/year</span>
-                          {plan.name === "Legacy Builder" && (
+                          {plan.name === 'Legacy Builder' && (
                             <span className="text-muted-foreground">
-                              {" "}
-                              - (${plan.annual_price / 12}/monthly)
+                              {' '}
+                              <br />
+                              (3 Days Free, then ${plan.annual_price})
                             </span>
                           )}
-                          {plan.name === "Legacy Master" && (
+                          {plan.name === 'Legacy Master' && (
                             <span className="text-muted-foreground">
-                              {" "}
-                              - (${plan.annual_price / 12}/monthly)
+                              {' '}
+                              <br />
+                              (3 Days Free, then ${plan.annual_price})
                             </span>
                           )}
                         </div>
@@ -320,15 +322,15 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                           className="w-full"
                           variant={
                             subscription?.plan_id === plan.plan_id
-                              ? "outline"
-                              : "default"
+                              ? 'outline'
+                              : 'default'
                           }
                           disabled={subscription?.plan_id === plan.plan_id}
-                          onClick={() => handlePlanSelect(plan, "yearly")}
+                          onClick={() => handlePlanSelect(plan, 'yearly')}
                         >
                           {subscription?.plan_id === plan.plan_id
-                            ? "Current Plan"
-                            : "Select"}
+                            ? 'Current Plan'
+                            : 'Select'}
                         </Button>
                       )}
 
@@ -337,15 +339,15 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                           className="w-full"
                           variant={
                             subscription?.plan_id === plan.plan_id
-                              ? "outline"
-                              : "default"
+                              ? 'outline'
+                              : 'default'
                           }
                           disabled={subscription?.plan_id === plan.plan_id}
-                          onClick={() => handlePlanSelect(plan, "lifetime")}
+                          onClick={() => handlePlanSelect(plan, 'lifetime')}
                         >
                           {subscription?.plan_id === plan.plan_id
-                            ? "Current Plan"
-                            : "Select Lifetime Plan"}
+                            ? 'Current Plan'
+                            : 'Select Lifetime Plan'}
                         </Button>
                       )}
                     </div>
