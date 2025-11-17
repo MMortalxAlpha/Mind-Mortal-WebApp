@@ -277,7 +277,7 @@ const SubscriptionStatus: React.FC<SubscriptionStatusProps> = ({
                           <span className="text-3xl font-bold">
                             ${plan.annual_price / 12}
                           </span>
-                          <span className="text-muted-foreground">/year</span>
+                          <span className="text-muted-foreground">/month</span>
                           {plan.name === 'Legacy Builder' && (
                             <span className="text-muted-foreground">
                               {' '}
