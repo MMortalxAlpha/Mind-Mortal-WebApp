@@ -107,7 +107,7 @@ const PricingPlan = ({
         <div className="flex flex-col items-start mt-3 space-y-2">
           {plan.monthly_price && (
             <div className="flex items-baseline">
-              <span className="text-3xl font-bold">£{plan.monthly_price}</span>
+              <span className="text-3xl font-bold">${plan.monthly_price}</span>
               <span className="text-muted-foreground ml-1">/month</span>
             </div>
           )}
@@ -120,7 +120,7 @@ const PricingPlan = ({
                 <div className="flex-grow border-t border-border" />
               </div>
               <div className="flex items-baseline">
-                <span className="text-3xl font-bold">£{plan.annual_price}</span>
+                <span className="text-3xl font-bold">${plan.annual_price}</span>
                 <span className="text-muted-foreground ml-1">/year</span>
               </div>
             </>
@@ -135,7 +135,7 @@ const PricingPlan = ({
               </div>
               <div className="flex items-baseline">
                 <span className="text-3xl font-bold">
-                  £{plan.lifetime_price}
+                  ${plan.lifetime_price}
                 </span>
                 <span className="text-muted-foreground ml-1">/lifetime</span>
               </div>
